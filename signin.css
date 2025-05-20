@@ -1,0 +1,85 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+a {
+    text-decoration: none;
+}
+input,
+button,
+label,
+a {
+    cursor: pointer;
+}
+li {
+    list-style: none;
+}
+#wrap {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+form {
+    position: absolute;
+    top: 25%;
+    width: 420px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.logo {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.logo img {
+    width: 110px;
+    height: 110px;
+}
+.logo {
+    margin: 0 0 30px 0;
+}
+form > input:not(input[type="submit"]) {
+    margin: 10px 0 10px 0;
+}
+input:not(input[type="submit"]) {
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+input[type="submit"] {
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    margin: 30px 0 0 0;
+    background-color: black;
+    color: white;
+    border: none;
+}
+input {
+    font-weight: 900;
+}
+.new_box {
+    width: 100%;
+    display: flex;
+    margin-top: 30px;
+}
+.new_box a {
+    width: 50%;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}

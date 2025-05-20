@@ -1,0 +1,378 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+a {
+    text-decoration: none;
+}
+input[type=radio] {
+    display: none;
+}
+input,
+button,
+label,
+a {
+    cursor: pointer;
+}
+li {
+    list-style: none;
+}
+.side_menu_bar {
+    height: 0;
+    overflow: hidden;
+}
+body {
+    width: 100vw;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#wrap {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+#side_menu:checked ~ .side_menu {
+    display: block;
+}
+.side_menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    background-color: white;
+}
+.side_menu_header {
+    width: 100%;
+    height: 30%;
+}
+.side_control,
+.side_btn {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.side_a_box {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.side_a_box > a {
+    line-height: 320%;
+    text-align: center;
+    font-weight: 900;
+    border-radius: 10px;
+    margin: 5px 20px 5px 20px;
+}
+.side_a_box:nth-child(1) > a {
+    width: calc(100% - 40px);
+    height: calc(100% - 10px);
+    background-color: black;
+    color: white;
+}
+.side_a_box:nth-child(2) > a {
+    width: calc(100% - 44px);
+    height: calc(100% - 14px);
+    background-color: transparent;
+    border: 2px solid black;
+    color: black;
+}
+.side_logo_box,
+.side_close_box {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.side_logo {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 20px;
+}
+.side_logo > img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+.close_side_menu {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.close_side_menu::after {
+    width: 2px;
+    height: 30px;
+    background-color: black;
+    content: '';
+    rotate: 45deg;
+    position: absolute;
+}
+.close_side_menu::before {
+    width: 2px;
+    height: 30px;
+    background-color: black;
+    content: '';
+    rotate: -45deg;
+}
+.side_menu_bin {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.side_menu_bin::after {
+    width: calc(100% - 40px);
+    height: 1px;
+    background-color: rgb(201, 201, 201);
+    content: '';
+}
+.side_menu_body {
+    width: 100%;
+    height: calc(70% - 50px);
+}
+.side_menu_body_menu_box {
+    width: calc(100% - 40px);
+    height: 70px;
+    background-color: aliceblue;
+}
+
+.real_header {
+    width: 100vw;
+    height: 80px;
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: white;
+}
+header {
+    width: 1280px;
+    height: 80px;
+    display: flex;
+}
+.logo {
+    width: 8%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.login_box {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.logo_box {
+    position: absolute;
+    left: 0;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.logo_box > img {
+    width: 110px;
+    height: 110px;
+}
+.login_btn_box {
+    position: absolute;
+    right: 0;
+    display: flex;
+    text-align: center;
+    line-height: 40px;
+}
+.login_btn_box a {
+    margin: 0 0 0 20px;
+    border-radius: 30px;
+    font-weight: 900;
+}
+.login_btn_box a:nth-child(1),
+.login_btn_box a:nth-child(3) {
+    width: calc(100px - 4px);
+    height: calc(40px - 4px);
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+}
+.login_btn_box a:nth-child(2),
+.login_btn_box a:nth-child(4) {
+    width: 100px;
+    height: 40px;
+    background-color: black;
+    color: white;
+}
+
+
+.menu_box {
+    width: 72%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.menu {
+    position: absolute;
+    left: 0;
+}
+.menu > li {
+    float: left;
+    margin: 0 20px 0 20px;
+}
+.menu a {
+    color: black;
+    font-weight: 900;
+}
+
+.main_screen {
+    width: 1280px;
+    height: calc(100vh - 80px);
+    display: flex;
+}
+.main1 {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.main_text_box {
+    width: 100%;
+    position: absolute;
+    top: 25%;
+}
+.main_text_box h1 {
+    font-size: 4em;
+}
+.main_text_box h1,
+.main_text_box p,
+.main_text_box div {
+    width: 100%;
+    text-align: left;
+    margin: 30px 0 30px 0;
+}
+.main_bt_box button {
+    border-radius: 10px;
+    border: none;
+    font-weight: 900;
+}
+.main_bt_box button:nth-child(1) {
+    background-color: white;
+    border: 2px solid black;
+    width: calc(150px - 4px);
+    height: calc(50px - 4px);
+    margin-right: 20px;
+}
+.main_bt_box button:nth-child(2) {
+    width: 150px;
+    height: 50px;
+    background-color: black;
+    color: white;
+}
+.main2 {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.main2 img {
+    width: 30em;
+    height: 30em;
+    object-fit: cover;
+}
+@media screen and (max-width: 480px) {
+    #wrap {
+        overflow: hidden;
+        width: 100%;
+    }
+    header {
+        width: 100%;
+    }
+    .logo {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .logo_box {
+        left: 20px;
+    }
+    .menu_box {
+        display: none;
+    }
+    .login_box {
+        display: none;
+    }
+    .main_screen {
+        width: 480px;
+    }
+    .main2 {
+        display: none;
+    }
+    .main1 {
+        width: 100%;
+    }
+    .main_text_box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .main_text_box h1,
+    .main_text_box p,
+    .main_text_box div {
+        text-align: center;
+    }
+    .main_text_box p {
+        width: 50%;
+    }
+    .main_text_box h1 {
+        font-size: 3em;
+    }
+    .side_menu_bar {
+        width: 25px;
+        height: 20px;
+        position: absolute;
+        right: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .side_menu_bar div {
+        width: 100%;
+        height: 2px;
+        background-color: black;
+    }
+}
