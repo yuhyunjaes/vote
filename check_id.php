@@ -31,4 +31,3 @@ if ($row) {
     echo json_encode(['success' => false]);
 }
 ?>
-
