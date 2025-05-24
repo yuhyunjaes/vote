@@ -4,7 +4,7 @@
 }
 :root {
     --main: #A259FF;
-    --sub: #4C6EF5;
+    --sub: #007bff;
 }
 html {
     scroll-behavior: smooth;
@@ -51,7 +51,8 @@ body {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 0;
+    overflow: hidden;
     z-index: 999;
     background-color: black;
 }
@@ -59,10 +60,15 @@ body {
     width: 100%;
     height: 30%;
 }
+.side_control {
+    height: 80px;
+}
+.side_btn {
+    height: calc(100% - 80px);
+}
 .side_control,
 .side_btn {
     width: 100%;
-    height: 50%;
     display: flex;
     flex-wrap: wrap;
 }
@@ -74,29 +80,29 @@ body {
     align-items: center;
 }
 .side_a_box > a {
-    line-height: 320%;
     text-align: center;
     font-weight: 900;
     border-radius: 10px;
     margin: 5px 20px 5px 20px;
+    line-height: 350%;
 }
 .side_a_box:nth-child(1) > a {
     width: calc(100% - 40px);
-    height: calc(100% - 10px);
-    background-color: black;
-    color: white;
+    height: calc(75% - 10px);
+    background-color: var(--main);
+    color: #ffffff;
 }
 .side_a_box:nth-child(2) > a {
-    width: calc(100% - 44px);
-    height: calc(100% - 14px);
-    background-color: transparent;
-    border: 2px solid black;
-    color: black;
+    width: calc(100% - 42px);
+    height: calc(75% - 12px);
+    background-color: black;
+    color: white;
+    border: 1px solid rgb(37, 37, 37);
 }
 .side_logo_box,
 .side_close_box {
     width: 50%;
-    height: 100%;
+    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -128,7 +134,7 @@ body {
 .close_side_menu::after {
     width: 2px;
     height: 30px;
-    background-color: black;
+    background-color: #ffffff;
     content: '';
     rotate: 45deg;
     position: absolute;
@@ -136,7 +142,7 @@ body {
 .close_side_menu::before {
     width: 2px;
     height: 30px;
-    background-color: black;
+    background-color: #ffffff;
     content: '';
     rotate: -45deg;
 }
@@ -148,7 +154,7 @@ body {
     align-items: center;
 }
 .side_menu_bin::after {
-    width: calc(100% - 40px);
+    width: calc(100% - 40px);  
     height: 1px;
     background-color: rgb(201, 201, 201);
     content: '';
@@ -160,7 +166,34 @@ body {
 .side_menu_body_menu_box {
     width: calc(100% - 40px);
     height: 70px;
-    background-color: aliceblue;
+    background-color: black;
+    color: white;
+    border: 1px solid rgb(37, 37, 37);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.side_menu_body_menu_box p {
+    position: absolute;
+    left: 10%;
+    font-weight: 900;
+}
+.side_menu_body_menu_box::after {
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 2px solid white;
+    content: '>';
+    color: white;
+    position: absolute;
+    right: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .real_header {
@@ -332,6 +365,7 @@ header {
     color: var(--main);
     font-size: 5em;
     display: flex;
+    text-shadow: 0 0 5px var(--main);
 }
 .main2_text_ani_stick {
     animation: 1s infinite linear stick;
@@ -355,6 +389,9 @@ header {
 }
 
 @media screen and (max-width: 480px) {
+    .side_menu {
+        height: 100vh;
+    }
     #wrap {
         overflow: hidden;
         width: 100%;
@@ -416,6 +453,6 @@ header {
     .side_menu_bar div {
         width: 100%;
         height: 2px;
-        background-color: black;
+        background-color: #ffffff;
     }
 }

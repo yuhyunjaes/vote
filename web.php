@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+$conn = mysqli_connect("localhost", "root", "", "vote");
+
 $id = 0;
 if(isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
     $id = $_SESSION['user_id'];
@@ -43,10 +45,18 @@ if(isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
             </div>
             <div class="side_menu_bin"></div>
             <div class="side_menu_body">
-                <div class="side_menu_body_menu_box"></div>
-                <div class="side_menu_body_menu_box"></div>
-                <div class="side_menu_body_menu_box"></div>
-                <div class="side_menu_body_menu_box"></div>
+                <a href="#" class="side_menu_body_menu_box">
+                    <p>코드 갤러리</p>
+                </a>
+                <a href="#" class="side_menu_body_menu_box">
+                    <p>이야기방</p>
+                </a>
+                <a href="#" class="side_menu_body_menu_box">
+                    <p>작업실</p>
+                </a>
+                <a href="#" class="side_menu_body_menu_box">
+                    <p>마이페이지</p>
+                </a>
             </div>
         </div>
 
@@ -81,7 +91,14 @@ if(isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
                         <a style="<?php if($id === 0) {echo 'display: block;';} else {echo 'display: none;';}?>" href="signin.php">로그인</a>
                         <a style="<?php if($id === 0) {echo 'display: block;';} else {echo 'display: none;';}?>" href="signup.php">회원가입</a>
 
-                        <p style="<?php if($id !== 0) {echo 'display: block;';} else {echo 'display: none;';}?>"><?php echo$id?><span style="font-weight: 400;">님</span></p>
+                        <?php
+                            if($id !== 0) {
+                                $nick_select_sql = "SELECT * FROM users WHERE userid = '$id'";
+                                $nick_select_result = mysqli_query($conn, $nick_select_sql);
+                                $nick_select_row = mysqli_fetch_assoc($nick_select_result);
+                            }
+                        ?>
+                        <p style="<?php if($id !== 0) {echo 'display: block;';} else {echo 'display: none;';}?>"><?php if($id !== 0) {echo$nick_select_row['nickname'];}?><span style="font-weight: 400;">님</span></p>
                         <a style="<?php if($id !== 0) {echo 'display: block;';} else {echo 'display: none;';}?>" href="logout.php">로그아웃</a>
                     </div>
                 </div>
@@ -107,4 +124,3 @@ if(isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
     </div>
     <script src="web.js"></script>
 </body>
-</html>
