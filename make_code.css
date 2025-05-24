@@ -1,0 +1,143 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+}
+
+:root {
+    --main: #A259FF;
+    --sub: #007bff;
+}
+input,
+button,
+label,
+a {
+    cursor: pointer;
+}
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+
+body {
+    overflow-x: hidden;
+}
+#wrap {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+}
+
+/* header */
+.real_header {
+    width: 100vw;
+    height: 80px;
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: black;
+}
+header {
+    width: 1280px;
+    height: 80px;
+    display: flex;
+}
+.logo {
+    width: 8%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.login_box {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.logo_box {
+    position: absolute;
+    left: 0;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.logo_box > img {
+    width: 100px;
+    height: 100px;
+}
+.login_btn_box {
+    position: absolute;
+    right: 0;
+    display: flex;
+    text-align: center;
+}
+.login_btn_box a {
+    margin: 0 0 0 20px;
+    border-radius: 10px;
+    font-weight: 900;
+}
+.login_btn_box p:nth-child(3) {
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    font-weight: 900;
+    color: white;
+}
+.login_btn_box a:nth-child(1) {
+    line-height: 36px;
+    width: calc(100px - 4px);
+    height: calc(40px - 4px);
+    background-color: var(--sub);
+    color: white;
+    border: 2px solid var(--sub);
+}
+.login_btn_box a:nth-child(2),
+.login_btn_box a:nth-child(4) {
+    line-height: 40px;
+    width: 100px;
+    height: 40px;
+    background-color: var(--main);
+    color: white;
+}
+.menu_box {
+    width: 72%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.menu {
+    position: absolute;
+    left: 0;
+}
+.menu > li {
+    float: left;
+    margin: 0 20px 0 20px;
+}
+.menu a {
+    color: white;
+    font-weight: 900;
+}
+/* header */
+
+
+.main {
+    width: 100vw;
+    height: calc(100vh - 80px);
+    display: flex;
+}
+.main1,
+.main2 {
+    width: 50%;
+    height: 100%;
+}
