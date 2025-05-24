@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Monaco Editor Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Monaco Editor 실시간 웹 미리보기</title>
   <style>
-    body {
-      margin: 0;
+    body, html {
+      margin: 0; padding: 0; height: 100%;
+      display: flex;
+      flex-direction: column;
       font-family: sans-serif;
     }
     #toolbar {
@@ -14,9 +16,19 @@
       background: #eee;
       border-bottom: 1px solid #ccc;
     }
-    #container {
-      width: 100%;
+    #main {
+      display: flex;
       height: calc(100vh - 50px);
+    }
+    #container {
+      width: 50%;
+      height: 100%;
+    }
+    #preview {
+      width: 50%;
+      height: 100%;
+      border: none;
+      background: white;
     }
   </style>
 </head>
@@ -31,49 +43,13 @@
     </select>
   </div>
 
-  <div id="container"></div>
+  <div id="main">
+    <div id="container"></div>
+    <iframe id="preview"></iframe>
+  </div>
 
   <script src="https://unpkg.com/monaco-editor@latest/min/vs/loader.js"></script>
-  <script>
-    let editor;
-    let models = {};
-
-    const defaultCodes = {
-      javascript: `function helloWorld() {
-  console.log("Hello world!");
-}`,
-      html: `<!DOCTYPE html>
-<html>
-  <head><title>Example</title></head>
-  <body><h1>Hello HTML!</h1></body>
-</html>`,
-      css: `body {
-  background-color: #f0f0f0;
-  color: #333;
-}`
-    };
-
-    require.config({ paths: { vs: 'https://unpkg.com/monaco-editor@latest/min/vs' }});
-    require(['vs/editor/editor.main'], function () {
-      // 모델 생성
-      for (const lang in defaultCodes) {
-        models[lang] = monaco.editor.createModel(defaultCodes[lang], lang);
-      }
-
-      // 에디터 생성
-      editor = monaco.editor.create(document.getElementById('container'), {
-        model: models.javascript,
-        theme: 'vs-dark',
-        automaticLayout: true
-      });
-
-      // 언어 변경
-      document.getElementById('language').addEventListener('change', (e) => {
-        const selectedLang = e.target.value;
-        editor.setModel(models[selectedLang]);
-      });
-    });
-  </script>
+  <script src="pp.js"></script>
 
 </body>
 </html>
