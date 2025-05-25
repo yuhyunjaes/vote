@@ -132,12 +132,30 @@ header {
 
 
 .main {
-    width: 100vw;
-    height: calc(100vh - 80px);
+    width: 1280px;
+    height: calc(100vh - 160px);
     display: flex;
 }
-.main1,
-.main2 {
+ 
+.main_container,
+#preview {
     width: 50%;
     height: 100%;
+}
+#preview {
+    border: none;
+}
+.select_lan {
+    width: 100%;
+    height: 50px;
+    background-color: rgb(33, 33, 33);
+}
+#container {
+    width: 100%;
+    height: calc(100% - 50px);
+}
+
+#upload {
+    width: 100vw;
+    height: 80px;
 }

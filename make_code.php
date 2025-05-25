@@ -10,16 +10,24 @@
     <link rel="stylesheet" href="make_code.css">
 </head>
 <body>
-    <div id="wrap">
+    <div id="wrap"> 
         <?php
             include('second/header.php');
         ?>
 
         <div class="main">
-            <div class="main1"></div>
-            <div class="main2"></div>
+            <iframe id="preview"></iframe>
+            <div class="main_container">
+                <div class="select_lan"></div>
+                <div id="container"></div>
+            </div>
         </div>
 
+        <div class="upload"></div>
+
     </div>
+
+    <script src="https://unpkg.com/monaco-editor@latest/min/vs/loader.js"></script>
+    <script src="make_code.js"></script>
 </body>
 </html>
