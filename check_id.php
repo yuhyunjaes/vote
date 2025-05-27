@@ -1,6 +1,7 @@
 <?php
 header('Content-Type: application/json');
 
+
 $pdo = new PDO('mysql:host=localhost;dbname=vote;charset=utf8', 'root', '');
 
 $user_id = isset($_POST['user_id']) ? $_POST['user_id'] : '';
