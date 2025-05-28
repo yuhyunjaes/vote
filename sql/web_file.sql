@@ -1,0 +1,8 @@
+CREATE TABLE web_file (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id VARCHAR(50) NOT NULL,
+    html TEXT,
+    css TEXT,
+    js TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
