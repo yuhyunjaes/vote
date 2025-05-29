@@ -14,13 +14,13 @@
                             <a href="#">코드 갤러리</a>
                         </li>
                         <li>
-                            <a href="#">이야기방</a>
-                        </li>
-                        <li>
                             <a href="make_code.php">작업실</a>
                         </li>
                         <li>
-                            <a href="#">마이페이지</a>
+                            <a href="my_page.php">마이페이지</a>
+                        </li>
+                        <li>
+                            <a href="#">이야기방</a>
                         </li>
                     </ul>
                 </nav>

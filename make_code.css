@@ -8,10 +8,12 @@
     --sub: #007bff;
 }
 input,
-button,
-label,
+button
 a {
     cursor: pointer;
+}
+button {
+    border: none;
 }
 li {
     list-style: none;
@@ -38,6 +40,7 @@ body {
     top: 0;
     z-index: 1;
     background-color: black;
+    margin-bottom: 20px;
 }
 header {
     width: 1280px;
@@ -80,6 +83,11 @@ header {
     display: flex;
     text-align: center;
 }
+.login_btn_box * {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
 .login_btn_box a {
     margin: 0 0 0 20px;
     border-radius: 10px;
@@ -119,6 +127,8 @@ header {
 .menu {
     position: absolute;
     left: 0;
+    margin: 0;
+    padding: 0;
 }
 .menu > li {
     float: left;
@@ -127,14 +137,17 @@ header {
 .menu a {
     color: white;
     font-weight: 900;
+    text-decoration: none;
 }
 /* header */
 
 
 .main {
     width: 1280px;
-    height: calc(100vh - 160px);
+    height: calc(100vh - 200px);
     display: flex;
+    overflow: hidden;
+    border-radius: 10px;
 }
  
 .main_container,
@@ -144,18 +157,115 @@ header {
 }
 #preview {
     border: none;
+    background-color: white;
 }
 .select_lan {
     width: 100%;
     height: 50px;
-    background-color: rgb(33, 33, 33);
+    background-color: #212121;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+#language {
+    position: absolute;
+    left: 0;
+    height: 100%;
+}
+#language > button {
+    width: 120px;
+    height: 100%;
+    border: none;
+    background-color: #212121;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+#language > button img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+#language > button:nth-child(1) {
+    background-color: #1b1b1b;
 }
 #container {
     width: 100%;
     height: calc(100% - 50px);
+    position: relative;
+}
+.left {
+    position: absolute;
+    left: 0;
 }
 
-#upload {
+.upload {
     width: 100vw;
-    height: 80px;
+    height: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+.upload_box {
+    width: 1280px;
+    height: 70px;
+    position: absolute;
+    bottom: 10px;
+    background-color: #212121;
+    border-radius: 10px;
+}
+.upload_box form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.sub_mit_box {
+    display: flex;
+    position: absolute;
+    right: 0;
+}
+#upload_Code,
+#save_Code,
+#upload_Code,
+#delete_data_box,
+#code_box {
+    margin: 0 10px 0 10px;
+    border-radius: 10px;
+    width: 200px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 50px;
+    color: white;
+    font-weight: 900;
+}
+#save_Code i {
+    line-height: 50px;
+}
+#upload_Code i,
+#upload_Code span,
+#save_Code i,
+#save_Code span,
+#delete_data_box span,
+#delete_data_box i,
+#code_box span,
+#code_box i {
+    margin: 0 5px 0 5px;
+}
+#upload_Code {
+    background-color: var(--main);
+    color: white;
+}
+#code_box,
+#delete_data_box {
+    display: none;
 }
