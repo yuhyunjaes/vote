@@ -1,50 +1,60 @@
 let editor;
-    let models = {};
-    const savedCodes = {
-      javascript: ``,
-      html: ``,
-      css: ``
-    };
+let models = {};
+const savedCodes = {
+  javascript: ``,
+  html: ``,
+  css: ``
+};
 
-    require.config({ paths: { vs: 'https://unpkg.com/monaco-editor@latest/min/vs' }});
-    require(['vs/editor/editor.main'], function () {
-      for (const lang in savedCodes) {
-        models[lang] = monaco.editor.createModel(savedCodes[lang], lang);
-      }
+require.config({ paths: { vs: 'https://unpkg.com/monaco-editor@latest/min/vs' } });
+require(['vs/editor/editor.main'], function () {
+  for (const lang in savedCodes) {
+    models[lang] = monaco.editor.createModel(savedCodes[lang], lang);
+  }
 
-      editor = monaco.editor.create(document.getElementById('container'), {
-        model: models.javascript,
-        theme: 'vs-dark',
-        automaticLayout: true
-      });
+  editor = monaco.editor.create(document.getElementById('container'), {
+    model: models.javascript,
+    theme: 'vs-dark',
+    automaticLayout: true
+  }); 
 
-      function updatePreview() {
-        const html = savedCodes.html;
-        const css = `<style>${savedCodes.css}</style>`;
-        const js = `<script>${savedCodes.javascript}<\/script>`;
+  function updatePreview() {
+    let html = savedCodes.html.trim();
 
-        const srcdoc = html.replace('</head>', css + '</head>').replace('</body>', js + '</body>');
+    if (!html.includes('<html')) {
+      html = `<!DOCTYPE html>
+<html>
+<head></head>
+<body>${html}</body>
+</html>`;
+    }
 
-        const iframe = document.getElementById('preview');
-        iframe.srcdoc = srcdoc;
-      }
+    const css = `<style>${savedCodes.css}</style>`;
+    const js = `<script>${savedCodes.javascript}<\/script>`;
 
-      function trackChanges(lang) {
-        models[lang].onDidChangeContent(() => {
-          savedCodes[lang] = models[lang].getValue();
-          updatePreview();
-        });
-      }
+    const srcdoc = html
+      .replace('</head>', css + '</head>')
+      .replace('</body>', js + '</body>');
 
-      for (const lang in models) {
-        trackChanges(lang);
-      }
+    const iframe = document.getElementById('preview');
+    iframe.srcdoc = srcdoc;
+  }
 
-      document.getElementById('language').addEventListener('change', (e) => {
-        const selectedLang = e.target.value;
-        editor.setModel(models[selectedLang]);
-      });
-
-      // 최초 미리보기 렌더링
+  function trackChanges(lang) {
+    models[lang].onDidChangeContent(() => {
+      savedCodes[lang] = models[lang].getValue();
       updatePreview();
     });
+  }
+
+  for (const lang in models) {
+    trackChanges(lang);
+  }
+
+  document.getElementById('language').addEventListener('change', (e) => {
+    const selectedLang = e.target.value;
+    editor.setModel(models[selectedLang]);
+  });
+
+  updatePreview();
+});
